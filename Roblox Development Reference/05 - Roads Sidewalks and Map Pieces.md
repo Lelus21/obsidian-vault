@@ -39,3 +39,27 @@ Each modular road can contain Attachments such as:
 
 Align the CFrame of one connector to the matching connector of the next road piece. This is safer than manually dragging by eye.
 
+## Live town-square neighborhood starter
+
+`Workspace.TownSquareNeighborhoodExpansion` extends `Workspace.SchaumburgTownSquare` into a modular neighborhood starting point.
+
+- Road width: `32` studs.
+- Sidewalk width: `4` studs.
+- Asphalt thickness: `0.4` studs.
+- Sidewalk thickness: `0.5` studs.
+- Grid increment: `4` studs.
+- Main east-west road: `TownSquareDrive`, spanning approximately `X 559.7` to `X 751.7` at `Z 325.6`.
+- South road: `NeighborhoodBoulevard`, spanning approximately `Z 325.6` to `Z 449.6` at `X 655.7`.
+- Public parking: ten marked spaces, an accessible space, driveway, wheel stops, sidewalks, and four landscaped islands.
+- Supporting street pieces: gateway crosswalk, curbs, edge lines, dashed center lines, stop control, street-name signs, streetlights, bus shelter, bike racks, and neighborhood monument.
+
+### Expansion connector paths
+
+- `Workspace.TownSquareNeighborhoodExpansion.Connectors.WestNeighborhoodConnector` at approximately `(559.7, 0.45, 325.6)`.
+- `Workspace.TownSquareNeighborhoodExpansion.Connectors.EastNeighborhoodConnector` at approximately `(751.7, 0.45, 325.6)`.
+- `Workspace.TownSquareNeighborhoodExpansion.Connectors.SouthNeighborhoodConnector` at approximately `(655.7, 0.45, 449.6)`.
+- Each road connector contains a `RoadSnap` Attachment.
+- Six matching sidewalk endpoints contain `SidewalkSnap` Attachments.
+
+New straight roads should continue from these endpoint faces with the same 32-stud asphalt width, 4-stud sidewalks, elevation, center-line position, and connector orientation.
+

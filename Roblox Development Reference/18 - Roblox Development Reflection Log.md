@@ -166,7 +166,7 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Studio path:** `Workspace.SchaumburgTownSquare`
 
-**Placement and scale:** Centered at approximately `(700, 0, 300)` in the clear lot beside the existing road network. Overall bounds are about `150 × 59.3 × 141` studs. Four invisible, non-colliding snap markers are under `Connectors`: `RoadConnectorSouth`, `RoadConnectorNorth`, `RoadConnectorEast`, and `RoadConnectorWest`, each with a `SnapAttachment`.
+**Placement and scale:** Final live bounds are centered at approximately `(655.7, 29.7, 239.1)` in the clear lot beside the existing road network. The ground pivot is approximately `(655.7, 0.8, 237.6)`, and overall bounds are about `150 × 59.3 × 141` studs. Four invisible, non-colliding snap markers are under `Connectors`: `RoadConnectorSouth`, `RoadConnectorNorth`, `RoadConnectorEast`, and `RoadConnectorWest`, each with a `SnapAttachment`.
 
 **Organization:** `Amenities`, `ClockTower`, `Connectors`, `Fountain`, `Gateway`, `GroundAndPaths`, `Landscaping`, `Lighting`, and `RetailShells`. The model's PrimaryPart is `Connectors.TownSquarePivot`, so the complete square can be moved as one unit.
 
@@ -175,3 +175,17 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Verification:** Final model contains `266` anchored BaseParts, `24` Models, `5` ParticleEmitters, and `9` PointLights. Structural audit found `0` unanchored parts and `0` invisible colliders. Front and aerial Studio captures confirmed the plaza composition, fountain, tower, landscaping, and south-facing signage. Three SurfaceGuis that initially faced north were corrected to face the main southern entrance.
 
 **Reusable lesson:** Audit the intended footprint against existing roads before building a large map landmark. Keep a civic set piece under one PrimaryPart with named folders and cardinal snap connectors; this makes future roads, parking, and surrounding commercial blocks much easier to align without rebuilding the square.
+
+## 2026-11-06 — Town square neighborhood road expansion
+
+**Request:** Expand the town square with original ideas, roads, sidewalks, and connectors that can begin the surrounding neighborhood.
+
+**Studio path:** `Workspace.TownSquareNeighborhoodExpansion`
+
+**Implementation:** Added a 32-stud-wide east-west frontage road directly against the town-square entrance and a matching southbound neighborhood boulevard. Both roads use 0.4-stud asphalt, 4-stud sidewalks, raised curbs, white edge lines, yellow dashed center lines, and a broad gateway crosswalk. Added a ten-space public parking lot with an accessible space, driveway, wheel stops and landscaped islands. Supporting details include a glass `TOWN LOOP` bus shelter, warm streetlights, `TOWN SQUARE DR` and `NEIGHBORHOOD BLVD` signs, stop control, bike racks, trees, and a brick `NEIGHBORHOODS` monument.
+
+**Connectors:** `WestNeighborhoodConnector`, `EastNeighborhoodConnector`, and `SouthNeighborhoodConnector` each contain a `RoadSnap` Attachment. Six corresponding sidewalk endpoints use `SidewalkSnap` Attachments. Exact coordinates and dimensions are recorded in [[05 - Roads Sidewalks and Map Pieces]].
+
+**Verification:** Aerial Studio review confirmed that the road meets the town-square gateway cleanly and that the boulevard, parking lot, bus shelter, and signage form a readable neighborhood entrance. The final expansion contains `138` BaseParts; all are anchored, no invisible colliders were found, and an overlap audit found `0` intersections with the pre-existing road, turn, connector, or four-way models. Overall bounds are approximately `193.5 × 11.4 × 148.5` studs.
+
+**Reusable lesson:** When extending a landmark into a map hub, build the frontage street and sidewalks to the existing boundary first, then create outward-facing road and sidewalk attachments before adding decoration. This keeps parking, transit, and landscaping visually polished without sacrificing future snap compatibility.
