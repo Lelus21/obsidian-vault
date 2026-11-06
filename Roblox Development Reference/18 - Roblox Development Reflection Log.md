@@ -159,3 +159,19 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 ## 2026-11-05 — Menu cursor handoff
 
 `LuxuryStoreClient` now uses a visible modal button for GUI cursor access. Removed its per-frame mouse unlock and saved cursor restoration. `EquipmentBagUI` clears search focus when hidden and enables its modal button only while the bag is visible. Verified first-person mouse mode was `LockCenter` with the normal camera after closing Luxury and verified the bag released focus when hidden. Studio automation supplied zero mouse delta while locked, so physical mouse-look recovery was not verified.
+
+## 2026-11-06 — Schaumburg-inspired town square
+
+**Request:** Begin the map with a polished town square inspired by Schaumburg Town Square in Illinois, including its brick clock-tower landmark, green civic gateway and a central fountain.
+
+**Studio path:** `Workspace.SchaumburgTownSquare`
+
+**Placement and scale:** Centered at approximately `(700, 0, 300)` in the clear lot beside the existing road network. Overall bounds are about `150 × 59.3 × 141` studs. Four invisible, non-colliding snap markers are under `Connectors`: `RoadConnectorSouth`, `RoadConnectorNorth`, `RoadConnectorEast`, and `RoadConnectorWest`, each with a `SnapAttachment`.
+
+**Organization:** `Amenities`, `ClockTower`, `Connectors`, `Fountain`, `Gateway`, `GroundAndPaths`, `Landscaping`, `Lighting`, and `RetailShells`. The model's PrimaryPart is `Connectors.TownSquarePivot`, so the complete square can be moved as one unit.
+
+**Implementation:** Built a brick-paved civic plaza with concrete approaches, a teal segmented entrance arch labeled `SCHAUMBURG TOWN SQUARE`, a tall red-brick clock tower with pale stone bands and four visible clock faces, a two-tier illuminated fountain with five water particle jets, two low brick storefront shells labeled `TOWN CAFE` and `LOCAL MARKET`, trees, hedges, flower planters, benches, warm lampposts, flags, waste bins, and a stepped tower approach with rails. Styling intentionally uses optimized Roblox primitives and readable silhouettes rather than dense geometry.
+
+**Verification:** Final model contains `266` anchored BaseParts, `24` Models, `5` ParticleEmitters, and `9` PointLights. Structural audit found `0` unanchored parts and `0` invisible colliders. Front and aerial Studio captures confirmed the plaza composition, fountain, tower, landscaping, and south-facing signage. Three SurfaceGuis that initially faced north were corrected to face the main southern entrance.
+
+**Reusable lesson:** Audit the intended footprint against existing roads before building a large map landmark. Keep a civic set piece under one PrimaryPart with named folders and cardinal snap connectors; this makes future roads, parking, and surrounding commercial blocks much easier to align without rebuilding the square.
