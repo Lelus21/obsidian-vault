@@ -1,0 +1,12 @@
+# Local credentials and agent settings
+.claudian/
+
+# Obsidian machine-specific UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Operating-system clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
