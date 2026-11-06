@@ -30,6 +30,9 @@ This folder summarizes both the Roblox Studio work discussed in chat and a read-
 - [[16 - Exact Gameplay Values and Data Contracts]]
 - [[17 - Backups Duplicates and Maintenance Notes]]
 - [[18 - Roblox Development Reflection Log]]
+- [[19 - The Burg Game Ideas]]
+- [[20 - Roblox Game Development Playbook]]
+- [[21 - XP Gain Bar Reference]]
 
 ## Which notes to use
 

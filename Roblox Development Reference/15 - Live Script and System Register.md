@@ -76,6 +76,17 @@ Responsibilities:
 - Publishes `PulseBar` and `Penjamin` folders under `Player.ToolXP` with TotalXP, Level, XP, RequiredXP, Completed and SaveStatus.
 - Uses `ToolXP_v1` outside Studio; autosaves every 60 seconds and retries on removal/BindToClose.
 - Session receipts prevent duplicate increments from a repeated UpdateAsync.
+- Fires `ReplicatedStorage.ToolXPGained` with group ID, authoritative before-total, and authoritative after-total when an award increases XP.
+
+### `ToolXPGainHUD`
+
+- Builds a temporary top-center XP gain bar from the `ToolXPGained` event.
+- Shows accumulated `+N XP`, tool-group name, large level number, and current-level progress.
+- Interpolates the level/fill color through silver, dark green, navy, purple, dark red, and level-100 gold.
+- Fades in over 0.23 seconds, animates progress over 0.62 seconds, waits 4.5 seconds after the latest gain, then fades out over 0.5 seconds.
+- Combines rapid gains for the same group and resets when the group changes.
+- Moves from y = 20 to y = 72 on narrow screens to clear the top-left XP and Equipment tabs.
+- Full exact reference: [[21 - XP Gain Bar Reference]].
 
 ### Equipment Bag
 
@@ -137,9 +148,9 @@ Responsibilities:
 
 The following paths/groups account for the active source containers found outside ServerStorage backups:
 
-- `ReplicatedStorage`: `BurgFrontEnd.ClientSettings`, `EquipmentBag.Catalog`, `PhoneSystem.FlappyBird`, `SchoolFootball.Config`, `SchoolFootball.CatchMath`, and `ToolXPConfig`.
+- `ReplicatedStorage`: `BurgFrontEnd.ClientSettings`, `EquipmentBag.Catalog`, `PhoneSystem.FlappyBird`, `SchoolFootball.Config`, `SchoolFootball.CatchMath`, `ToolXPConfig`, and `ToolXPGained`.
 - `ServerScriptService`: `BurgDreamService`, `BurgSleepServer`, `BurgStorySaves`, `BurgTitleServer`, `BurgWardrobeServer`, `EquipmentBagServer`, `MarketSquarePlazaDoors`, `ProximityPromptLayout`, `SchoolFootballServer`, `SchoolFootballService`, `ToolXPBootstrap`, and `ToolXPService`.
-- `StarterPlayerScripts`: `BasketballStealPrompts`, `BurgDeskSeatingClient`, `BurgDreamClient`, `BurgDreamTraderVisuals`, `BurgPhoneClient`, `BurgSleepClient`, `BurgTitleClient`, `BurgWardrobeClient`, `EquipmentBagHotbar`, `EquipmentBagUI`, `PickupPromptFirstPersonFix`, `PulseHeadRushController`, `SchoolBasketballInput`, `SchoolFootballInput`, `SchoolRoomSmokeVisuals`, `SchoolStallPrompts`, `TheVibeSmokeVisuals`, and `ToolXPMenu`.
+- `StarterPlayerScripts`: `BasketballStealPrompts`, `BurgDeskSeatingClient`, `BurgDreamClient`, `BurgDreamTraderVisuals`, `BurgPhoneClient`, `BurgSleepClient`, `BurgTitleClient`, `BurgWardrobeClient`, `EquipmentBagHotbar`, `EquipmentBagUI`, `PickupPromptFirstPersonFix`, `PulseHeadRushController`, `SchoolBasketballInput`, `SchoolFootballInput`, `SchoolRoomSmokeVisuals`, `SchoolStallPrompts`, `TheVibeSmokeVisuals`, `ToolXPGainHUD`, and `ToolXPMenu`.
 - Pulse Tools: each live Pulse has `PickupHandler`, `HeldVisualAnimator`, and `ScreenUseCounter`.
 - Penjamin Tools: MXK, ACE, MuhaMed and NOVA have `BlinkerClient`, `BlinkerServer`, and `OilDisplayController`; NOVA also has `VisibleOilController`.
 - School: `BasketballPossession`, `BasketballShotModel`, `BasketballTrajectory`, `CafeteriaFoodFactory`, `CafeteriaMeals`, `CafeteriaStaffController`, `CampusNightLighting`, `EntranceDoorController`, `GymActivities`, `LunchWorkerRig`, `SchoolFacilitiesController`, `SchoolRestroomController`, `SchoolRoomSmokeController`, `SchoolScanInController`, `StadiumMasterLightingController`, and `StadiumScanInController`.

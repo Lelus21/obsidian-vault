@@ -134,6 +134,16 @@ Do not mark a request successful until the relevant behavior has been inspected 
 
 **Follow-up:** When Green Pulse or NOVA receive production-ready Equipment Bag templates and gameplay behavior, add them to both `EquipmentBag.Catalog` and `LuxuryStore.Catalog` before selling them.
 
+## 2026-11-06 — XP gain bar documented
+
+**Request:** Capture all information from the new XP bar in the Obsidian reference notes.
+
+**Studio paths:** `StarterPlayer.StarterPlayerScripts.ToolXPGainHUD`, `ReplicatedStorage.ToolXPGained`, `ReplicatedStorage.ToolXPConfig`, and `ServerScriptService.ToolXPService`.
+
+**Implementation:** Created [[21 - XP Gain Bar Reference]] and updated the live system register and exact data contracts with its event flow, dimensions, responsive offset, labels, level colors, animation timings, reward values, cooldowns, repeated-gain behavior, published attributes, and save behavior. No Studio code was changed.
+
+**Verification:** In Free Roam, fired the real gain event for a 500-XP Penjamin increase and visually confirmed the HUD. Two rapid 100-XP Pulse Bar events combined into `+200 XP`. No XP system errors appeared in the game console.
+
 ## 2026-11-05 — Starter Pulse
 
 New equipment sessions and fresh Story saves start with `starterpulse`, a basic graphite Pulse Bar with 15% battery and 0% juice. Empty juice blocks activation and server-side use counting on this Tool. Existing Story slots load their saved ownership, with MuhaMed retained as the fallback for older slots without an ownership list. Luxury no longer grants MuhaMed automatically.

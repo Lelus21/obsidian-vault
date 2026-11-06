@@ -58,10 +58,16 @@ Failure smoke is 18 total puffs in bursts of 4, 8 and 6 separated by 0.16 and 0.
 - Maximum level: 100.
 - Required XP for the next level: `level × 1000`.
 - Total cap: `1000 × 100 × 101 / 2 = 5,050,000 XP` per group.
+- Starter Pulse normal hit: 50 Pulse Bar XP.
+- Standard Pulse normal hit: 100 Pulse Bar XP.
+- Standard Pulse Ghost hit: 200 Pulse Bar XP.
+- Successful Penjamin Blinker: 500 Penjamin XP.
 - Pulse reward cooldown: 1.7 seconds.
 - Penjamin reward cooldown: 4 seconds.
 - Penjamin XP is restricted to Tools named `MXK`, `MuhaMed`, or `ACE` with `XPGroup = Penjamin`.
 - DataStore: `ToolXP_v1` outside Studio. Studio uses session-only XP.
+- Gain HUD: 0.23-second fade-in, 0.62-second progress tween, 4.5-second visible hold after the latest gain, and 0.5-second fade-out.
+- Gain HUD colors: level 1 silver RGB 192/192/192, 25 dark green 6/64/43, 50 navy 0/0/128, 75 purple 75/0/110, 99 dark red 139/0/0, and 100 gold 243/175/25.
 
 ## Equipment Bag catalog
 
@@ -86,6 +92,7 @@ Templates live at `ServerStorage.EquipmentBagTools.<id>`. Keep the template scri
 - `Tool.BlinkerRequest` RemoteEvent actions: `Begin`, `TimingSuccess`, `TimingMiss`, `Release`, `Finish`, `Cancel`.
 - `ReplicatedStorage.PulseHeadRushEvent` BindableEvent: local animator fires tint and hit type; local controller consumes it.
 - `ReplicatedStorage.EquipmentBag.Equip` RemoteEvent: requests an Equipment Bag item by catalog ID.
+- `ReplicatedStorage.ToolXPGained` RemoteEvent: server sends `groupId, beforeTotal, afterTotal` after a validated XP increase.
 - `ReplicatedStorage.SchoolFootball.Action` RemoteEvent: shared football action channel.
 - `ServerScriptService.TheVibeSmokeEmission` BindableEvent: receives position, puff count, size multiplier and travel multiplier from tool smoke.
 - `ReplicatedStorage.BurgDream.ExitTransition` RemoteEvent: dream exit presentation.
