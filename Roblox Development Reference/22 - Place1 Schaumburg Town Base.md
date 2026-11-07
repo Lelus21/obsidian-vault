@@ -8,9 +8,9 @@ This note documents the large editable town foundation created in the separate R
 - PrimaryPart: `Workspace.SchaumburgTownBase.11_MapConnectors.TownPivot`
 - Style attribute: `TownStyle = SchaumburgInspired`
 - Planned map size attribute: `MapSize = 900`
-- Audited bounds: approximately `966 × 102.9 × 902` studs
+- Audited bounds after the polish pass: approximately `966 × 100.1 × 902` studs
 - Audited center: approximately `(-2.5, 35.5, 0)`
-- Final contents: `1,285` BaseParts and `202` Models
+- Final polished contents: `2,018` BaseParts and `219` Models
 - Structural audit: all parts anchored; no invisible colliders
 
 ## Folder organization
@@ -118,3 +118,60 @@ The houses are intentionally filler-ready. They can remain hollow for performanc
 - Prefer exterior-only shells until a building needs gameplay.
 - Add interiors as separate child Models so the filler exterior can remain reusable.
 - Maintain clear sightlines near intersections; do not place trees or signs inside crosswalk corners.
+
+## Full polish pass
+
+The town received a second full visual pass on 2026-11-06 after the original fountain, clock tower, tree scatter and open southern blocks were judged too basic.
+
+### Fountain rebuild
+
+`04_TownSquare.VeteransGatewayTownSquare.CentralFountain` was rebuilt from scratch with correctly oriented circular geometry:
+
+- 50-stud circular plinth and 46-stud lower basin.
+- Three coordinated stone/water tiers.
+- Eight upper arcing streams and six middle arcing streams.
+- Five vertical top jets.
+- Eight underwater neon lights with PointLights.
+- Flower beds and benches positioned around the fountain without blocking the plaza paths.
+
+### Clock tower rebuild
+
+`04_TownSquare.VeteransGatewayTownSquare.BrickClockTower` now includes:
+
+- Stepped limestone foundation and base.
+- Taller brick shaft with dark inset panels and corner pilasters.
+- Four stone cornice levels.
+- Limestone clock chamber.
+- Four separate analog clock faces with hour marks and hands.
+- Four-panel copper roof, eave, roof cap, spire and gold finial.
+
+### Filled districts
+
+The previously empty southern-center blocks now contain:
+
+- `SchaumburgPoliceDepartment` with visitor parking.
+- `VillageConferenceHotel` with parking and landscaped islands.
+- `SchaumburgFuelAndMarket` with store, canopy, pump islands and forecourt.
+- Detailed striped parking for the municipal hall, fire station, library and clinic.
+- `SchoolAthleticCourt` behind the high school.
+- Residential foundation shrubs and mulch beds.
+
+### Tree replacement and safety audit
+
+All original `StreetTree` Models were removed. The replacement system generated `123` layered-canopy `OrnamentalTree` Models from block-edge candidates.
+
+- Every normal tree publishes `ClearanceChecked = true`.
+- Candidates within 38 studs of any major intersection were rejected.
+- Candidates were rejected if a 12 × 16 × 12-stud clearance volume touched roads, sidewalks, curbs, parking, driveways, building foundations or existing trees.
+- Tree trunks are collidable, while canopies are non-colliding.
+- A final trunk-overlap audit reported `0` trees intersecting roads, sidewalks, parking, buildings or driveways.
+
+### Final verification
+
+- `2,018` anchored BaseParts and `219` Models.
+- `0` unanchored parts.
+- `0` invisible colliders.
+- Player spawned safely on the town-square brick plaza at approximately `(60.3, 3.7, 62.6)`.
+- Aerial, town-square, south-district and west-district play-mode views were inspected.
+- No console errors appeared.
+- Backup: `ServerStorage.SchaumburgTownBase_BeforePolish_20261106`.

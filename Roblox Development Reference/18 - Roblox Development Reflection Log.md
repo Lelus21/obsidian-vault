@@ -260,6 +260,20 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** For a large starter town, establish the road hierarchy, block boundaries and expansion connectors first. Keep every district in a named folder and use exterior-only building shells so future gameplay interiors can replace individual buildings without rebuilding the map.
 
+## 2026-11-06 — Place1 town full polish pass
+
+**Request:** Make the Schaumburg town substantially better, fill the visible gaps, replace the poor fountain, improve the clock, and reposition trees so they do not interfere with anything.
+
+**Backup:** `ServerStorage.SchaumburgTownBase_BeforePolish_20261106`.
+
+**Implementation:** Rebuilt the fountain with correctly oriented circular tiers, fourteen arcing water paths, five upper jets, stone detailing and underwater lighting. Rebuilt the clock tower with a stepped base, pilasters, inset brick panels, four analog faces, cornices, copper roof and spire. Filled the two empty southern-center blocks with a police department, conference hotel and detailed parking; added a complete fuel station, civic parking, school athletic court, residential shrubs, plaza hedges and flower beds.
+
+**Tree correction:** Deleted the original scatter and generated new layered-canopy trees from block-edge candidates. The placement pass rejected intersection sightlines and any candidate whose clearance volume touched roads, sidewalks, curbs, parking, driveways, foundations or another tree. A final physical trunk-overlap audit checked all `123` trees and found `0` conflicts.
+
+**Verification:** Final root contains `2,018` anchored BaseParts and `219` Models, with `0` unanchored parts and `0` invisible colliders. The player spawned safely on Brick in the town square, four play-mode viewpoints confirmed the new composition, and the console was clean.
+
+**Reusable lesson:** Filling a map does not mean covering every lawn with geometry. Replace accidental emptiness with an intentional use—parking, landscaping, a civic building, recreation or a yard—and verify tree placement with physical clearance tests rather than judging only from an aerial screenshot.
+
 ## 2026-11-06 — Place1 Schaumburg town foundation
 
 **Request:** Use the whole empty Place1 baseplate to create a giant Schaumburg-inspired town foundation with streets, stores, and original ideas that can be continued later.
