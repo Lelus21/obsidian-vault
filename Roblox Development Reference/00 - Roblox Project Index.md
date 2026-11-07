@@ -35,8 +35,8 @@ This folder summarizes both the Roblox Studio work discussed in chat and a read-
 - [[21 - XP Gain Bar Reference]]
 - [[22 - Place1 Schaumburg Town Base]]
 - [[23 - Burg Model Transfer Catalog]]
-- [[23 - Burg Model Transfer Catalog]]
-- [[22 - Place1 Schaumburg Town Base]]
+- [[24 - New Games Research Synthesis]]
+- [[25 - New Roblox Game Brief Template]]
 
 ## Which notes to use
 
@@ -49,6 +49,7 @@ This folder summarizes both the Roblox Studio work discussed in chat and a read-
 
 Future feature ideas and a first delivery milestone are in [[19 - The Burg Game Ideas]].
 Research, Luau examples, asset workflows and release checks are in [[20 - Roblox Game Development Playbook]].
+For a new game, start with [[24 - New Games Research Synthesis]] and duplicate [[25 - New Roblox Game Brief Template]]. These notes distill the expanded vault into genre choices, a vertical-slice plan, and testable decisions.
 
 - All Pulse Bars use a completed-hit event, screen counters, R6 holding animation, smoke, sound, and a shared head-rush screen effect.
 - Desktop ProximityPrompts are prevented from capturing the first-person mouse.
