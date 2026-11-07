@@ -201,3 +201,17 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Verification:** Aerial and street-level Studio captures confirmed a clear T-junction, flush gateway crossing, open parking driveway, upright stop sign, readable street blades, and road-facing bus sign. The repaired expansion contains `145` anchored BaseParts, `0` invisible colliders, and all required replacement sidewalk/curb pieces are present.
 
 **Reusable lesson:** Sidewalks should be generated as segmented runs around every road mouth and driveway, not as uninterrupted strips laid over intersections. Treat curb openings, pedestrian crossings, and sign sightlines as part of road geometry rather than later decoration.
+
+## 2026-11-06 — Road kit standardized to Town Square width
+
+**Request:** Make every straight, left-turn, right-turn, and four-way road piece match the Town Square road width.
+
+**Implementation:** Rebuilt eight live road-piece models around their existing pivots using the shared Town Square profile: 32-stud asphalt, two 4-stud sidewalks, 0.4-stud road thickness, 0.5-stud sidewalk thickness, matching raised curbs, edge lines, and yellow center markings. Straight pieces remain 98 studs long. Turns now use three 32-stud asphalt sections with curved segmented center markings and a 68-stud footprint. Four-way intersections use five 32-stud sections with a 96-stud footprint. Every piece now has a `RoadPivot` PrimaryPart, width attributes, road connectors, and sidewalk connectors.
+
+**Placement corrections:** Shifted `roadtype1` by `+12 Z`, aligned its nested straight to the four-way east connector at an exact `0.000`-stud gap, and shifted the loose `RightTurnRoad` by `+8 Z` to remove widening collisions.
+
+**Backup:** `ServerStorage.RoadKitBeforeTownSquareWidth_193618`
+
+**Verification:** Studio overview confirmed consistent widths and markings across straight roads, both turns, and all four-way copies. The standardized kit contains `8` road models and `218` BaseParts. All models report `RoadWidth = 32` and `SidewalkWidth = 4`; all parts are anchored, with `0` invisible colliders and `0` dimension failures.
+
+**Reusable lesson:** When widening modular roads, preserve each model's pivot and orientation but re-evaluate connector offsets and every placed sample. A correct cross-section can still produce overlaps unless expanded intersections and turns are re-snapped after their footprint changes.

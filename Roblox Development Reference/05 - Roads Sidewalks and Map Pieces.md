@@ -75,3 +75,39 @@ The live expansion was repaired so sidewalks and curbs no longer cross drivable 
 - `BusStopSign` uses Y rotation `90` and faces the roadway.
 - Backup: `ServerStorage.TownSquareNeighborhoodExpansion_BeforeSidewalkFix_192815`.
 
+## Standardized live road kit
+
+The older road pieces were rebuilt to match the Town Square profile instead of the original 24-stud asphalt width.
+
+### Shared profile
+
+- Asphalt width: `32` studs.
+- Sidewalk width: `4` studs per side.
+- Total outside width: `40` studs.
+- Asphalt thickness: `0.4` studs.
+- Sidewalk thickness: `0.5` studs.
+- Curbs: `0.45` studs wide and `0.65` studs tall.
+- White edge-line offset: `14.8` studs from center.
+- Every model publishes `RoadWidth = 32`, `SidewalkWidth = 4`, and `TotalWidth = 40` attributes.
+- Every piece has a transparent, non-colliding `RoadPivot` PrimaryPart with named road and sidewalk Attachments.
+
+### Piece dimensions
+
+- `simple road`: `98` studs long, `40` studs outside width, with `NorthConnector` and `SouthConnector` at the square end faces.
+- `LeftTurnRoad` and `RightTurnRoad`: three `32 × 32` asphalt sections, `68 × 68` overall footprint, six road/sidewalk connectors, matching curbs, and segmented curved center markings.
+- `FourWayIntersection`: five `32 × 32` asphalt sections, `96 × 96` footprint, four road connectors and eight sidewalk connectors.
+
+### Standardized live paths
+
+- Both top-level models named `Workspace.simple road`.
+- `Workspace.FourWayIntersection`.
+- `Workspace.RightTurnRoad`.
+- `Workspace.RoadConnectors.LeftTurnRoad`.
+- `Workspace.RoadConnectors.FourWayIntersection`.
+- `Workspace.roadtype1.simple road`.
+- `Workspace.roadtype1.FourWayIntersection`.
+
+`roadtype1` was shifted `12` studs in positive Z to preserve its north straight connection after the four-way footprint grew. Its nested straight was then aligned to the four-way's east connector with a final connector gap of `0.000` studs. The loose `RightTurnRoad` sample was shifted `8` studs in positive Z to prevent a widened-footprint collision.
+
+Backup: `ServerStorage.RoadKitBeforeTownSquareWidth_193618`.
+
