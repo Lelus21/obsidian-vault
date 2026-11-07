@@ -288,6 +288,18 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** A polished filler building needs convincing front, side, rear and roof treatment. Improving only the façade leaves obvious blank shells from aerial or alley views. Preserve exact Burg cloning for a session where both Studio projects are connected; otherwise follow the same folder, exterior-only, roof-transition, trim and site standards.
 
+## 2026-11-06 — Burg model transfer catalog for Place1
+
+**Request:** Collect all important Burg models—The Vibe, houses, Schaumburg locations, Luxury and interior buildings—describe them in Obsidian, and determine whether complete models can be stored there.
+
+**Live source:** The burg (`placeId: 93189891893380`). Place1 was not connected during the audit, so no cross-place paste was attempted.
+
+**Implementation:** Created [[23 - Burg Model Transfer Catalog]] from a fresh live Studio inventory. It records 28 substantial top-level Models, current part/model/script/prompt counts, bounding sizes, interior status, detailed sections for the three interactive houses, The Vibe, Schaumburg High School, Market Square Plaza, Luxury, Subway, Walgreens, the exterior house collection, road/map pieces and transfer dependencies. Created [[Model Exports/README]] with recommended `.rbxm` package names and a safe export procedure.
+
+**Important limitation:** Markdown cannot preserve Roblox Instance data. Obsidian can store a real `.rbxm` or `.rbxmx` as an attachment, but this Studio connection does not expose Save Selection to File. Exact exports therefore require Studio's file export command, after which the files can live in the prepared vault folder.
+
+**Reusable lesson:** Transfer large Roblox places as several versioned packages, not one giant model. Document external ReplicatedStorage, ServerStorage, ServerScriptService and StarterPlayerScripts dependencies before enabling imported gameplay scripts in the destination place.
+
 ## 2026-11-06 — Place1 Schaumburg town foundation
 
 **Request:** Use the whole empty Place1 baseplate to create a giant Schaumburg-inspired town foundation with streets, stores, and original ideas that can be continued later.
