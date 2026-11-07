@@ -66,6 +66,25 @@ Verification:
 - The same pre-equip sanitation passed from a regular passenger `Seat`.
 - Backup: `ServerStorage.VehicleToolSafetyBefore_200351`.
 
+### Correction — the first Cuckrolla fix was incomplete
+
+The sanitation above is still useful, but it did **not** solve the real Starter Pulse failure. The first moving verification was invalid because the title flow had left the player's `HumanoidRootPart` anchored, so the test vehicle could not react normally.
+
+The corrected reproduction used the real `cuckrolla` garage-spawn profile, the real R6 character, and the real Starter Pulse. The vehicle stayed stable with empty hands, but the normal Roblox `Humanoid:EquipTool()` transition injected severe roll/pitch torque through the seated character assembly. Making the Tool massless, disabling every Tool collision, making the character massless, changing `RequiresHandle`, and suppressing the Pulse grip animation were each insufficient by themselves.
+
+Final fix in `ServerScriptService.VehicleToolPhysicsGuard`:
+
+- Keep the original Tool sanitation for every Backpack/equipped Tool.
+- When an occupant actually equips any Tool, add a temporary `VehicleToolUprightGuard` `BodyGyro` to the vehicle chassis.
+- Apply strong X/Z torque only, leaving Y torque at zero so normal steering/yaw remains available.
+- Recover the same seat for a few short post-equip frames if Roblox's equip transition momentarily clears `Humanoid.SeatPart`.
+- Remove the stabilizer immediately when the Tool is unequipped or the occupant leaves the vehicle.
+- Publish `VehicleToolStabilizerActive` on the vehicle for diagnosis.
+
+Correct verification used the production garage spawn position and setup. With the Starter Pulse equipped, the Cuckrolla stayed seated and upright while moving: minimum chassis up-vector `0.997`, ending up-vector `0.997`, speed about `39.68` studs/second. Unequipping removed the stabilizer, cleared the active attribute, and left the car upright at `0.999`.
+
+Backups: `ServerStorage.VehicleToolSafetyBefore_200351`, `ServerStorage.VehicleToolGripFixBefore_20261106`, and `ServerStorage.VehicleToolStabilizerBefore_20261106`.
+
 ## R6 arm moves backward or disconnects visually
 
 - Preserve the original `Right Shoulder.C0`.

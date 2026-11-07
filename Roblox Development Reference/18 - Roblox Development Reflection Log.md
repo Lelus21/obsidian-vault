@@ -229,3 +229,19 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Verification:** First confirmed the normal prepared Starter Pulse produced `0.000` chassis angular velocity while seated. Then created an intentionally unsafe 3-stud Tool with an anchored, collidable, touch/query-enabled, non-massless Handle. The new guard corrected every property while the Tool was still in the Backpack, before equip. After equipping and moving the Cuckrolla at 16 studs/second for 2.5 seconds, maximum angular velocity remained `0.000` and minimum chassis up-vector remained `1.000`. A separate regular passenger-seat test also passed. Final audit found `0` unsafe Equipment Bag template parts, the guard enabled, and no console errors.
 
 **Reusable lesson:** Vehicle Tool safety must run before the grip is created, not only after a Tool appears in the Character. Sanitize seated players' Backpacks and equipped Tools, and cover regular passenger Seats as well as the driver VehicleSeat.
+
+## 2026-11-06 — Cuckrolla equipped-item flip fix corrected
+
+**Request:** The user reported that the first fix did not work: the Cuckrolla still twitched and barrel-rolled as soon as the Pulse was pulled out.
+
+**Correction to the earlier entry:** The earlier unsafe-Tool verification did not represent live vehicle physics because the title flow had left `HumanoidRootPart` anchored. The Tool-part sanitation remains valid defense-in-depth, but it was not the complete cause or fix.
+
+**Reproduction:** A clean control with the real Cuckrolla and no held Tool stayed upright. Equipping the real Starter Pulse caused violent rotation even after all Tool parts were massless/non-colliding, all character parts were made massless/non-colliding, the Pulse's seated grip animation was suppressed, and `RequiresHandle` was disabled. This isolated the remaining failure to the Roblox `Humanoid:EquipTool()` transition acting through the seated character/vehicle assembly, not to one bad decorative Pulse part.
+
+**Implementation:** Reworked `ServerScriptService.VehicleToolPhysicsGuard`. It retains complete Tool sanitation, then creates a temporary `VehicleToolUprightGuard` `BodyGyro` on the vehicle chassis only while an occupant has a Tool equipped. `MaxTorque = (5e7, 0, 5e7)` and the upright target resist roll/pitch while zero Y torque leaves steering yaw alone. A short bounded recovery routine re-seats the same Humanoid if equip momentarily clears its seat. The stabilizer and `VehicleToolStabilizerActive` attribute are removed as soon as no occupant holds a Tool.
+
+**Verification:** Used the actual `BurgGarageServer` spawn profile at the garage bay with the production Cuckrolla, R6 character, and Starter Pulse. Empty-hand control remained upright. With the Pulse equipped and the chassis moving, minimum/ending up-vector was `0.997`, the player stayed in the driver seat, the Tool remained held, the stabilizer was active, and speed reached about `39.68` studs/second. After unequip, the gyro was gone, the active attribute cleared, the player remained seated, and the chassis up-vector was `0.999`.
+
+**Backups:** `ServerStorage.VehicleToolGripFixBefore_20261106` and `ServerStorage.VehicleToolStabilizerBefore_20261106` (in addition to the original `VehicleToolSafetyBefore_200351`).
+
+**Reusable lesson:** A physics test is invalid if the avatar root or vehicle assembly is anchored. For vehicle/equipment bugs, reproduce with the production spawn path, verify finite/unanchored assembly physics, test the actual Tool, and validate both equip and unequip transitions. When the engine's equip transition itself introduces roll torque, use a temporary vehicle-side roll/pitch stabilizer rather than increasingly invasive Tool rewrites.

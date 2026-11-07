@@ -141,7 +141,7 @@ Responsibilities:
 
 - `PickupPromptFirstPersonFix`: sets `ClickablePrompt = false` on desktop prompts so centered first-person mouse look is not captured; touch-only prompts remain clickable.
 - `ProximityPromptLayout`: finds prompts sharing a carrier and offsets/layouts them using `PromptLayoutBaseOffset`.
-- `VehicleToolPhysicsGuard`: detects driver and passenger vehicle seats, then makes every Backpack or equipped Tool unanchored, non-colliding, non-touching, non-queryable, and massless before it can affect the vehicle assembly.
+- `VehicleToolPhysicsGuard`: detects driver and passenger vehicle seats; sanitizes every Backpack/equipped Tool; and, only while a Tool is held, adds a chassis `VehicleToolUprightGuard` that blocks roll/pitch torque without blocking steering yaw. It also restores a briefly lost seat after equip and removes the stabilizer immediately on unequip/exit.
 - `MarketSquarePlazaDoors`: initializes and tweens attribute-tagged plaza doors.
 - House door/window/covering controllers: generic TweenService implementations driven by instance attributes.
 
