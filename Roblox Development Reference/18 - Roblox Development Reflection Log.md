@@ -245,3 +245,31 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Backups:** `ServerStorage.VehicleToolGripFixBefore_20261106` and `ServerStorage.VehicleToolStabilizerBefore_20261106` (in addition to the original `VehicleToolSafetyBefore_200351`).
 
 **Reusable lesson:** A physics test is invalid if the avatar root or vehicle assembly is anchored. For vehicle/equipment bugs, reproduce with the production spawn path, verify finite/unanchored assembly physics, test the actual Tool, and validate both equip and unequip transitions. When the engine's equip transition itself introduces roll torque, use a temporary vehicle-side roll/pitch stabilizer rather than increasingly invasive Tool rewrites.
+
+## 2026-11-06 — Place1 Schaumburg town foundation
+
+**Request:** Use the whole empty Place1 baseplate to create a giant Schaumburg-inspired town foundation with streets, stores, and original ideas that can be continued later.
+
+**Studio path:** `Workspace.SchaumburgTownBase` in the separate Studio project named `Place1`.
+
+**Implementation:** Built a roughly 900 × 900-stud organized town grid with a 44-stud main boulevard pair, four 32-stud secondary roads, sixteen buildable blocks, segmented 5-stud sidewalks, curbs, markings, central crosswalks, and four cardinal road connectors. Added a brick civic plaza with a fountain, Veterans Gateway arch and clock tower; twelve named storefronts; five civic/public buildings; a high school; an apartment building; ten exterior-only houses; parking, transit shelters, streetlights, traffic signals, signs, benches, bike racks, trees and landscaping.
+
+**Organization:** The root Model has eleven numbered folders and `11_MapConnectors.TownPivot` as its PrimaryPart. Exact dimensions, district names, store names, road coordinates and connector details are in [[22 - Place1 Schaumburg Town Base]].
+
+**Verification:** Structural audit found `1,285` anchored BaseParts, `202` Models, `0` unanchored parts and `0` invisible colliders. Bounds are approximately `966 × 102.9 × 902` studs. Play mode spawned the player on the town-square brick plaza at about `(61.2, 6.0, 60.5)`, with Brick as the floor material. Aerial and street-level views confirmed the grid, storefronts, clock tower, fountain, traffic signals and road readability. No console errors appeared.
+
+**Reusable lesson:** For a large starter town, establish the road hierarchy, block boundaries and expansion connectors first. Keep every district in a named folder and use exterior-only building shells so future gameplay interiors can replace individual buildings without rebuilding the map.
+
+## 2026-11-06 — Place1 Schaumburg town foundation
+
+**Request:** Use the whole empty Place1 baseplate to create a giant Schaumburg-inspired town foundation with streets, stores, and original ideas that can be continued later.
+
+**Studio path:** `Workspace.SchaumburgTownBase` in the separate Studio project named `Place1`.
+
+**Implementation:** Built a roughly 900 × 900-stud organized town grid with a 44-stud main boulevard pair, four 32-stud secondary roads, sixteen buildable blocks, segmented 5-stud sidewalks, curbs, markings, central crosswalks, and four cardinal road connectors. Added a brick civic plaza with a fountain, Veterans Gateway arch and clock tower; twelve named storefronts; five civic/public buildings; a high school; an apartment building; ten exterior-only houses; parking, transit shelters, streetlights, traffic signals, signs, benches, bike racks, trees and landscaping.
+
+**Organization:** The root Model has eleven numbered folders and `11_MapConnectors.TownPivot` as its PrimaryPart. Exact dimensions, district names, store names, road coordinates and connector details are in [[22 - Place1 Schaumburg Town Base]].
+
+**Verification:** Structural audit found `1,285` anchored BaseParts, `202` Models, `0` unanchored parts and `0` invisible colliders. Bounds are approximately `966 × 102.9 × 902` studs. Play mode spawned the player on the town-square brick plaza at about `(61.2, 6.0, 60.5)`, with Brick as the floor material. Aerial and street-level views confirmed the grid, storefronts, clock tower, fountain, traffic signals and road readability. No console errors appeared.
+
+**Reusable lesson:** For a large starter town, establish the road hierarchy, block boundaries and expansion connectors first. Keep every district in a named folder and use exterior-only building shells so future gameplay interiors can replace individual buildings without rebuilding the map.

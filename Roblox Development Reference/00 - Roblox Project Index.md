@@ -33,6 +33,8 @@ This folder summarizes both the Roblox Studio work discussed in chat and a read-
 - [[19 - The Burg Game Ideas]]
 - [[20 - Roblox Game Development Playbook]]
 - [[21 - XP Gain Bar Reference]]
+- [[22 - Place1 Schaumburg Town Base]]
+- [[22 - Place1 Schaumburg Town Base]]
 
 ## Which notes to use
 
