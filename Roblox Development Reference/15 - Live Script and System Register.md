@@ -141,6 +141,7 @@ Responsibilities:
 
 - `PickupPromptFirstPersonFix`: sets `ClickablePrompt = false` on desktop prompts so centered first-person mouse look is not captured; touch-only prompts remain clickable.
 - `ProximityPromptLayout`: finds prompts sharing a carrier and offsets/layouts them using `PromptLayoutBaseOffset`.
+- `VehicleToolPhysicsGuard`: detects driver and passenger vehicle seats, then makes every Backpack or equipped Tool unanchored, non-colliding, non-touching, non-queryable, and massless before it can affect the vehicle assembly.
 - `MarketSquarePlazaDoors`: initializes and tweens attribute-tagged plaza doors.
 - House door/window/covering controllers: generic TweenService implementations driven by instance attributes.
 
@@ -149,7 +150,7 @@ Responsibilities:
 The following paths/groups account for the active source containers found outside ServerStorage backups:
 
 - `ReplicatedStorage`: `BurgFrontEnd.ClientSettings`, `EquipmentBag.Catalog`, `PhoneSystem.FlappyBird`, `SchoolFootball.Config`, `SchoolFootball.CatchMath`, `ToolXPConfig`, and `ToolXPGained`.
-- `ServerScriptService`: `BurgDreamService`, `BurgSleepServer`, `BurgStorySaves`, `BurgTitleServer`, `BurgWardrobeServer`, `EquipmentBagServer`, `MarketSquarePlazaDoors`, `ProximityPromptLayout`, `SchoolFootballServer`, `SchoolFootballService`, `ToolXPBootstrap`, and `ToolXPService`.
+- `ServerScriptService`: `BurgDreamService`, `BurgSleepServer`, `BurgStorySaves`, `BurgTitleServer`, `BurgWardrobeServer`, `EquipmentBagServer`, `MarketSquarePlazaDoors`, `ProximityPromptLayout`, `SchoolFootballServer`, `SchoolFootballService`, `ToolXPBootstrap`, `ToolXPService`, and `VehicleToolPhysicsGuard`.
 - `StarterPlayerScripts`: `BasketballStealPrompts`, `BurgDeskSeatingClient`, `BurgDreamClient`, `BurgDreamTraderVisuals`, `BurgPhoneClient`, `BurgSleepClient`, `BurgTitleClient`, `BurgWardrobeClient`, `EquipmentBagHotbar`, `EquipmentBagUI`, `PickupPromptFirstPersonFix`, `PulseHeadRushController`, `SchoolBasketballInput`, `SchoolFootballInput`, `SchoolRoomSmokeVisuals`, `SchoolStallPrompts`, `TheVibeSmokeVisuals`, `ToolXPGainHUD`, and `ToolXPMenu`.
 - Pulse Tools: each live Pulse has `PickupHandler`, `HeldVisualAnimator`, and `ScreenUseCounter`.
 - Penjamin Tools: MXK, ACE, MuhaMed and NOVA have `BlinkerClient`, `BlinkerServer`, and `OilDisplayController`; NOVA also has `VisibleOilController`.

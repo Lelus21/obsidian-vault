@@ -215,3 +215,17 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Verification:** Studio overview confirmed consistent widths and markings across straight roads, both turns, and all four-way copies. The standardized kit contains `8` road models and `218` BaseParts. All models report `RoadWidth = 32` and `SidewalkWidth = 4`; all parts are anchored, with `0` invisible colliders and `0` dimension failures.
 
 **Reusable lesson:** When widening modular roads, preserve each model's pivot and orientation but re-evaluate connector offsets and every placed sample. A correct cross-section can still produce overlaps unless expanded intersections and turns are re-snapped after their footprint changes.
+
+## 2026-11-06 — Cuckrolla equipped-item flip fix
+
+**Request:** Prevent the Cuckrolla from flipping or tumbling when a player pulls out any item while inside the car.
+
+**Diagnosis:** The prepared Starter Pulse was stable in an isolated driver-seat test, but the source audit found unsafe states elsewhere: several Tool templates had collidable/touch-enabled/non-massless parts, and three templates retained an anchored part. `EquipmentBagServer` cleaned collision and mass only when cloning catalog items, which did not cover arbitrary world-picked Tools and left a race for unsafe Backpack items equipped after sitting.
+
+**Implementation:** Added `ServerScriptService.VehicleToolPhysicsGuard`. It recognizes `VehicleSeat` drivers and regular passenger `Seat` instances inside a vehicle Model. On seating, it sanitizes every Tool in both the Backpack and Character before equip, watches late-added Tools and descendants, and publishes `VehicleToolGuardActive` / `VehiclePhysicsSafe` diagnostic attributes. Tool parts are forced unanchored, non-colliding, non-touching, non-queryable, and massless. Updated `EquipmentBagServer.prepareTool` with the same complete safety properties and hardened all 61 BaseParts under `ServerStorage.EquipmentBagTools` at the source.
+
+**Backup:** `ServerStorage.VehicleToolSafetyBefore_200351`
+
+**Verification:** First confirmed the normal prepared Starter Pulse produced `0.000` chassis angular velocity while seated. Then created an intentionally unsafe 3-stud Tool with an anchored, collidable, touch/query-enabled, non-massless Handle. The new guard corrected every property while the Tool was still in the Backpack, before equip. After equipping and moving the Cuckrolla at 16 studs/second for 2.5 seconds, maximum angular velocity remained `0.000` and minimum chassis up-vector remained `1.000`. A separate regular passenger-seat test also passed. Final audit found `0` unsafe Equipment Bag template parts, the guard enabled, and no console errors.
+
+**Reusable lesson:** Vehicle Tool safety must run before the grip is created, not only after a Tool appears in the Character. Sanitize seated players' Backpacks and equipped Tools, and cover regular passenger Seats as well as the driver VehicleSeat.

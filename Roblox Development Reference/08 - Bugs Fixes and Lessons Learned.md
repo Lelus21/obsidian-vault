@@ -36,6 +36,36 @@ Fix pattern:
 - Disable collisions, touches, and unnecessary queries on decorative pieces.
 - Keep the Handle compact and correctly aligned.
 
+## Cuckrolla flips when an item is equipped
+
+Symptom:
+
+- The car is stable while driving normally.
+- Pulling out a Tool while seated can make the vehicle receive violent torque, flip, or tumble.
+
+Cause:
+
+- Some stored and world-picked Tools can reach the seated character with an anchored, collidable, touch-enabled, queryable, or non-massless part.
+- The unsafe Tool can join or contact the occupied vehicle assembly during Roblox's equip frame.
+- Sanitizing only after the Tool enters the Character leaves a short race where an unsafe Backpack Tool can be gripped first.
+
+Fix:
+
+- `ServerScriptService.VehicleToolPhysicsGuard` recognizes driver and passenger seats inside vehicle Models.
+- As soon as a player sits, it sanitizes Tools in both the Character and Backpack before they can be equipped.
+- Late-added and newly equipped Tools are also sanitized.
+- Every Tool BasePart becomes unanchored, non-colliding, non-touching, non-queryable, and massless.
+- `EquipmentBagServer.prepareTool` now applies the same complete property set.
+- All 61 BaseParts under `ServerStorage.EquipmentBagTools` are stored in the safe state.
+
+Verification:
+
+- An intentionally unsafe test Tool began anchored, collidable, touch/query enabled, and non-massless.
+- While the player occupied the driver seat, it was corrected in the Backpack before equip.
+- After equipping and moving the Cuckrolla at 16 studs/second, maximum chassis angular velocity remained `0.000` and the chassis up-vector stayed `1.000`.
+- The same pre-equip sanitation passed from a regular passenger `Seat`.
+- Backup: `ServerStorage.VehicleToolSafetyBefore_200351`.
+
 ## R6 arm moves backward or disconnects visually
 
 - Preserve the original `Right Shoulder.C0`.
