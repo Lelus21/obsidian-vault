@@ -275,3 +275,76 @@ The civic green, brick, cream, charcoal and purple palette intentionally connect
 - Use attributes and the shared door controller instead of adding a separate door script to every model.
 - Keep product props and furniture optimized from primitive parts so the town remains stable as more interiors are added.
 - If exact Burg models are later exported as `.rbxm`, import them into a staging folder first and compare dependencies before replacing these gameplay-ready reconstructions.
+
+## Alignment, gateway and neighborhood expansion pass
+
+Place1 received a map-wide structural correction and original-feature pass on 2026-11-07. The priority was to remove physical overlaps and awkward empty areas before adding more decoration.
+
+### Town-square gateway rebuild
+
+`04_TownSquare.VeteransGatewayTownSquare.VeteransGateway` was rebuilt from scratch.
+
+- The old disconnected arms and stepped arch pieces were removed.
+- Two brick-and-limestone plinths now support inset civic-green metal posts.
+- Twenty connected arch segments form one continuous curve with no visible gaps.
+- A dark green, gold-trimmed signboard reads `SCHAUMBURG TOWN SQUARE` and `VETERANS GATEWAY` on both sides.
+- Caps, brackets and finials use the same brick, cream, civic green and muted gold palette as the clock tower and district identity signs.
+- Reusable copy: `ServerStorage.Place1ReusableModels.SchaumburgTownGatewayTemplate`.
+
+### Residential alignment correction
+
+The audit found multiple house shells physically overlapping one another and three houses occupying the same parcels as the library, clinic-side commercial area or other buildings. The correction was structural rather than cosmetic.
+
+- Nine exterior-only filler houses were reduced to `0.82` scale so their footprints fit the neighborhood blocks without losing their established style.
+- Every home was rotated from its driveway direction, not from an assumed model yaw.
+- Driveway edges were aligned directly to the appropriate road edge.
+- `NorthMeadow02_Playable` received a short concrete `DrivewayConnector` to close its remaining small sidewalk gap.
+- The two northern west-side homes now form a clean east-facing row.
+- The two northern east-side homes now form a clean west-facing row.
+- Final audits report `0` house-to-house overlaps and `0` residential-to-commercial/civic building overlaps.
+
+### South Village extension
+
+The six houses that could not fit safely in the existing civic blocks now form a real neighborhood under `15_SouthVillageExtension`.
+
+- Six road-facing homes: `SouthVillage01`, `SouthVillage02`, `EastGrove01`, `EastGrove02`, `WestCourt01`, and `EastCourt01`.
+- 32-stud `SouthVillageLane`, approximately 320 studs long.
+- Full sidewalks, curbs, center dashes and a paved turnaround.
+- Eight coordinated streetlights and clearance-checked ornamental trees.
+- Readable `SOUTH VILLAGE LN` street sign.
+- `SouthVillageExpansionConnector` with a `RoadSnap` Attachment for a future continuation.
+- Extension attributes record six houses, 32-stud road width and expansion-ready status.
+
+### Original feature: Schaumburg Weekend Market
+
+`04_TownSquare.VeteransGatewayTownSquare.SchaumburgWeekendMarket` adds useful activity to the previously empty southern plaza corners while preserving both main pedestrian axes.
+
+- Two matching civic-green market pavilions.
+- Four counters with numbered `VendorSlot` Attachments for future NPC/store logic.
+- Display crates, canopy trim, warm string bulbs and paved pads.
+- Separate two-sided `SCHAUMBURG WEEKEND MARKET` event sign.
+- Indexed through `14_CommunityFeatures`.
+- Reusable copy: `ServerStorage.Place1ReusableModels.WeekendMarketPavilionTemplate`.
+
+### Backup and verification
+
+- Backup: `ServerStorage.SchaumburgTownBase_BeforeAlignmentAndIdentity_20261107` with the complete pre-pass town.
+- Final root: `4,728` descendants, `240` Models and `4,007` BaseParts.
+- `0` unanchored parts.
+- `0` invisible colliders.
+- `0` residential overlaps.
+- `0` residential-to-civic/commercial overlaps.
+- `0` extension tree/road conflicts.
+- Player spawned safely at approximately `(57.5, 6.0, 56.5)`.
+- Town-square, all four residential corners, the new neighborhood extension and aerial composition were inspected.
+- Play mode produced no console errors.
+
+### Reusable library after this pass
+
+`ServerStorage.Place1ReusableModels` now contains:
+
+- `PlayableBurgHouseTemplate`
+- `PulseLuxuryInteriorTemplate`
+- `TheVibeInteriorTemplate`
+- `SchaumburgTownGatewayTemplate`
+- `WeekendMarketPavilionTemplate`

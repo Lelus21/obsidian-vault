@@ -56,6 +56,18 @@ Recommended attributes:
 - Avoid excessive tiny pieces on filler houses.
 - Back up a detailed version to `ServerStorage` before replacing it with a simplified shell.
 
+## Neighborhood alignment checklist
+
+- Audit actual building footprints before arranging houses; visual spacing from one camera angle is not enough.
+- Check house-to-house and house-to-civic/commercial overlaps separately.
+- Use the driveway direction to determine the true front of a reused model. Do not rely only on the pivot's reported yaw.
+- Make the driveway reach the road or sidewalk edge exactly; add a small matching connector when the remaining gap is intentional.
+- Keep a narrow but visible property gap between neighboring roof overhangs, yards and site pieces.
+- If two full-size filler houses cannot fit inside a block, scale only the filler shells consistently or move them to a planned neighborhood extension.
+- Never hide houses inside a civic, commercial or parking parcel just to fill space.
+- New neighborhood extensions should continue the road hierarchy, sidewalks, curbs, lighting and `RoadSnap` connector system.
+- Run the overlap audit again after rotating, scaling or moving any house.
+
 ## Preferred visual style
 
 - Roblox-readable proportions.

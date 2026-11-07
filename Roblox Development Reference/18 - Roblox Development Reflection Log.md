@@ -276,6 +276,20 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** Apply a reference catalog by extracting its design language and gameplay structure, not by turning every filler shell into a heavy interior. A small number of optimized hero buildings, a shared interaction controller, clear reusable templates and an inspection-driven correction pass improve the town more safely than importing a large undocumented dependency tree.
 
+## 2026-11-07 — Place1 alignment correction and South Village expansion
+
+**Request:** Use original inspiration to improve Place1, fix the broken town-square Schaumburg sign, close awkward gaps, correct unaligned houses, keep the work polished, and record everything in the reference vault.
+
+**Diagnosis:** Aerial screenshots suggested spacing problems, but a footprint audit confirmed the deeper issue: several house shells physically overlapped, and southern houses occupied parcels already used by the library, clinic-side district and commercial buildings. The original Veterans Gateway used disconnected side arms and stepped arch pieces, so the sign read as assembled fragments rather than one landmark.
+
+**Implementation:** Created `SchaumburgTownBase_BeforeAlignmentAndIdentity_20261107`, rebuilt the gateway as a continuous twenty-segment civic arch with a readable two-sided sign, and aligned houses from their actual driveway vector. Scaled the nine exterior-only fillers to `0.82`, created clean east/west-facing northern rows, and added a concrete connector to the playable home's driveway. Moved six displaced homes into a new 320-stud South Village Lane with sidewalks, curbs, turnaround, lighting, trees, street sign and future `RoadSnap` connector. Added a two-pavilion Schaumburg Weekend Market with four future vendor slots and created reusable gateway and pavilion templates.
+
+**Original design choice:** The market gives the square a reason to be visited without blocking the fountain or main walkways. The South Village extension turns displaced houses into intentional map growth instead of hiding them behind civic buildings. Both reuse the town's brick, cream, civic green and warm-light palette.
+
+**Verification:** Final Place1 contains `4,728` town descendants, `240` Models and `4,007` anchored BaseParts, with `0` unanchored parts, `0` invisible colliders, `0` house-to-house overlaps, `0` house-to-civic/commercial overlaps and `0` extension tree/road conflicts. Driveways meet their road edges, player spawn remained safe, and play mode produced no console errors.
+
+**Reusable lesson:** Map polish starts with footprint math. Check building-to-building overlaps and driveway-to-road distances before judging screenshots. If a district cannot physically hold every building, make a deliberate extension with road hierarchy and expansion connectors instead of shrinking the gaps until models collide.
+
 ## 2026-11-06 — Place1 town full polish pass
 
 **Request:** Make the Schaumburg town substantially better, fill the visible gaps, replace the poor fountain, improve the clock, and reposition trees so they do not interfere with anything.
