@@ -260,6 +260,18 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** For a large starter town, establish the road hierarchy, block boundaries and expansion connectors first. Keep every district in a named folder and use exterior-only building shells so future gameplay interiors can replace individual buildings without rebuilding the map.
 
+## 2026-11-07 — Town Explorer route in test Place One
+
+**Request:** Use the expanded Obsidian notes to make the connected `test` Studio town better.
+
+**Sources used:** [[22 - Place1 Schaumburg Town Base]], [[Level Design Principles - Flow Sightlines and Landmarks]], [[World-Space UI - BillboardGui and SurfaceGui]], and [[Weekend Build - Roleplay Town with Jobs and Paychecks]]. The vault is broad; these notes directly informed this town-scale feature. The job/paycheck example cautioned against granting money for a trivial repeatable or idle action.
+
+**Implementation:** Added a four-stop landmark route through the fountain, clock tower, market, and Pulse Luxury. The server validates proximity, tracks unique visits, and grants a session-only `Town Explorer` title attribute. A compact client HUD shows progress. A complete town backup lives at `ServerStorage.SchaumburgTownBase_BeforeExplorerTrail_20261107`.
+
+**Verification:** Play mode showed the HUD at `0/4`; all four in-world prompts advanced the count to `4/4`, set the completion/title attributes, and updated the displayed state. No console errors appeared.
+
+**Reusable lesson:** A map gains purpose when its landmarks form a short playable route. Keep the first pass server validated and session scoped, then integrate persistent rewards only when the town's wider economy and save contract are defined.
+
 ## 2026-11-07 — Place1 reference-driven hero interiors and model library
 
 **Request:** Apply the accumulated Burg, house, commercial and map notes to Place1, improve the town with original ideas, create reusable models, and save the result back into the reference notes.

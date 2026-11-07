@@ -348,3 +348,17 @@ The six houses that could not fit safely in the existing civic blocks now form a
 - `TheVibeInteriorTemplate`
 - `SchaumburgTownGatewayTemplate`
 - `WeekendMarketPavilionTemplate`
+
+## Town Explorer trail — 2026-11-07
+
+The first small gameplay loop in the `test` Place One town is `14_CommunityFeatures.TownExplorerTrail`. Four compact visit markers lead players through the fountain `(120, 84)`, clock tower `(177, 70)`, weekend market `(120, 205)`, and Pulse Luxury `(-195, 112)`. Each marker has a ProximityPrompt, a short range BillboardGui, and a distinct district color. The markers avoid the main walking paths and use anchored parts.
+
+`ServerScriptService.Place1TownExplorerServer` tracks the four visits per player with a bitmask, validates that a living character is within 13 studs, rejects repeat credit, and sets `ExplorerMask`, `ExplorerProgress`, `ExplorerLastStop`, `ExplorerComplete`, and `TownTitle` attributes. Completion gives the `Town Explorer` title attribute for the current server session; it does not award currency or saved XP.
+
+`StarterPlayer.StarterPlayerScripts.Place1TownExplorerClient` creates a compact top-right progress HUD and updates it from the replicated player attributes. The HUD does not capture the mouse or change camera controls.
+
+The change was guided by [[Level Design Principles - Flow Sightlines and Landmarks]] and [[World-Space UI - BillboardGui and SurfaceGui]]: use the existing clock and fountain as landmarks, give players a reason to follow the route, and limit world labels with `MaxDistance`.
+
+Backup: `ServerStorage.SchaumburgTownBase_BeforeExplorerTrail_20261107`.
+
+Playtest verification: all four prompts advanced progress `1 → 2 → 3 → 4`; completion set `ExplorerComplete = true` and `TownTitle = Town Explorer`. The HUD displayed the completed state, and the Studio console was clear. Progress currently resets on joining a new server; persistence and any credit/XP reward need a separate economy integration decision.
