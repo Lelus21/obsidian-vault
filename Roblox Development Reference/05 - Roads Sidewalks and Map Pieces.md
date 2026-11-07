@@ -63,3 +63,15 @@ Align the CFrame of one connector to the matching connector of the next road pie
 
 New straight roads should continue from these endpoint faces with the same 32-stud asphalt width, 4-stud sidewalks, elevation, center-line position, and connector orientation.
 
+### Sidewalk junction repair
+
+The live expansion was repaired so sidewalks and curbs no longer cross drivable openings:
+
+- The south frontage sidewalk and curb are split into west/east pieces around the `NeighborhoodBoulevard` mouth.
+- Boulevard sidewalks and curbs begin after the frontage-road intersection instead of extending into it.
+- The west boulevard sidewalk and curb are split around `ParkingDriveway`.
+- The north curb has a 20-stud opening aligned to the town-square gateway and crosswalk.
+- `StopSign` is upright at Y rotation `180` and faces northbound boulevard traffic.
+- `BusStopSign` uses Y rotation `90` and faces the roadway.
+- Backup: `ServerStorage.TownSquareNeighborhoodExpansion_BeforeSidewalkFix_192815`.
+

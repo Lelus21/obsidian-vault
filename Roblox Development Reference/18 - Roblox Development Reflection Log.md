@@ -189,3 +189,15 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 **Verification:** Aerial Studio review confirmed that the road meets the town-square gateway cleanly and that the boulevard, parking lot, bus shelter, and signage form a readable neighborhood entrance. The final expansion contains `138` BaseParts; all are anchored, no invisible colliders were found, and an overlap audit found `0` intersections with the pre-existing road, turn, connector, or four-way models. Overall bounds are approximately `193.5 × 11.4 × 148.5` studs.
 
 **Reusable lesson:** When extending a landmark into a map hub, build the frontage street and sidewalks to the existing boundary first, then create outward-facing road and sidewalk attachments before adding decoration. This keeps parking, transit, and landscaping visually polished without sacrificing future snap compatibility.
+
+## 2026-11-06 — Town square sidewalk and sign repair
+
+**Request:** Fix the town-square expansion's uneven sidewalk joins and rotate its signs correctly.
+
+**Implementation:** Split the south frontage sidewalk and curb around the boulevard mouth, trimmed both boulevard sidewalk runs so they begin outside the intersection, opened the west sidewalk and curb at the parking driveway, and added a 20-stud gateway curb opening aligned to the crosswalk. Added clean corner pads at the T-junction. Rotated the stop sign upright to `(0, 180, 0)`, rotated the bus-stop sign toward the road to `(0, 90, 0)`, and normalized the street-name and neighborhood monument blades.
+
+**Backup:** `ServerStorage.TownSquareNeighborhoodExpansion_BeforeSidewalkFix_192815`
+
+**Verification:** Aerial and street-level Studio captures confirmed a clear T-junction, flush gateway crossing, open parking driveway, upright stop sign, readable street blades, and road-facing bus sign. The repaired expansion contains `145` anchored BaseParts, `0` invisible colliders, and all required replacement sidewalk/curb pieces are present.
+
+**Reusable lesson:** Sidewalks should be generated as segmented runs around every road mouth and driveway, not as uninterrupted strips laid over intersections. Treat curb openings, pedestrian crossings, and sign sightlines as part of road geometry rather than later decoration.
