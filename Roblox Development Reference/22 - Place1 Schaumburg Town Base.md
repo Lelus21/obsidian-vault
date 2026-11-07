@@ -10,7 +10,7 @@ This note documents the large editable town foundation created in the separate R
 - Planned map size attribute: `MapSize = 900`
 - Audited bounds after the polish pass: approximately `966 × 100.1 × 902` studs
 - Audited center: approximately `(-2.5, 35.5, 0)`
-- Final polished contents: `2,018` BaseParts and `219` Models
+- Current contents after the Burg-style building rebuild: `3,666` BaseParts and `219` Models
 - Structural audit: all parts anchored; no invisible colliders
 
 ## Folder organization
@@ -175,3 +175,50 @@ All original `StreetTree` Models were removed. The replacement system generated 
 - Aerial, town-square, south-district and west-district play-mode views were inspected.
 - No console errors appeared.
 - Backup: `ServerStorage.SchaumburgTownBase_BeforePolish_20261106`.
+
+## Burg-style building rebuild
+
+The residential and commercial buildings received a separate all-sides rebuild on 2026-11-06. The exact live Burg models could not be cloned because only Place1 was connected, so the rebuild followed [[06 - House Building Standards]] and [[07 - House and Building Catalog]].
+
+### Houses
+
+All ten filler houses were rebuilt into four varied Burg-suburban styles rather than receiving surface-only decoration.
+
+- Exterior-only and fully closed.
+- Organized child folders: `ExteriorShell`, `Roofs`, `WindowsAndDoors`, `ExteriorTrim`, `ExteriorDetails`, and `Site`.
+- Ranch, craftsman and raised/split-level silhouettes.
+- Attached garages with framed, paneled garage doors.
+- Layered shingle roof sections, fascia, gutters and downspouts.
+- Brick foundation skirts, coordinated siding, corner boards and chimneys.
+- Framed glass windows, lintels and optional shutters.
+- Front doors, handles, porch roofs, columns, masonry column bases and porch lights.
+- Aligned driveways, front walks, mulch beds, shrubs and mailboxes.
+- Rear patios, service doors, rear lighting and fully trimmed rear windows.
+- Attributes: `ExteriorOnly = true`, `ExteriorFinished = true`, and a `BurgSuburban_1` through `BurgSuburban_4` style value.
+
+### Stores
+
+The twelve original simple storefront shells now publish `Style = BurgCommercial` and `ExteriorFinished = true`.
+
+- Stone/brick façade bases, pilasters and caps.
+- Raised parapets and roof cornices.
+- Storefront mullions, headers and detailed entrance surrounds.
+- Alternating fabric awning stripes and finished planters.
+- Door handles, rear service doors and service lights.
+- Rooftop HVAC units and slats.
+- Rear loading pads, bumpers, wall vents, utility boxes/conduit and enclosed dumpsters.
+- Business-specific details: Pulse Luxury neon, café/diner tables, market produce crates, and Auto Service bay accents.
+
+### Apartment
+
+`TownCenterApartments` now includes a stone base, front/rear cornices, brick pilasters, stacked balconies with rails and doors, formal entry canopy, columns, steps, downspouts, rooftop units and resident parking.
+
+### Verification
+
+- Backup: `ServerStorage.SchaumburgTownBase_BeforeBuildingUpgrade_20261106`.
+- Current root: `3,666` anchored BaseParts and `219` Models.
+- `0` unanchored parts and `0` invisible colliders.
+- `122` remaining ornamental trees with `0` physical conflicts after removing one tree that touched a new rear patio.
+- Front and rear house, store, apartment and full-town Play-mode views inspected.
+- Player still spawns safely at approximately `(60.3, 3.7, 62.6)`.
+- No console errors.

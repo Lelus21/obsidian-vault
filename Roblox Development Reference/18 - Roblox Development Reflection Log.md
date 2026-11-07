@@ -274,6 +274,20 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** Filling a map does not mean covering every lawn with geometry. Replace accidental emptiness with an intentional use—parking, landscaping, a civic building, recreation or a yard—and verify tree placement with physical clearance tests rather than judging only from an aerial screenshot.
 
+## 2026-11-06 — Place1 Burg-style house and store rebuild
+
+**Request:** Make all Place1 houses and stores look more like the buildings in The burg, copying live Burg models if possible.
+
+**Constraint:** Only Place1 was connected, so exact Burg instances could not be cloned. The rebuild used the saved Burg standards in [[06 - House Building Standards]] and [[07 - House and Building Catalog]].
+
+**Implementation:** Rebuilt all ten houses into four varied suburban silhouettes with organized exterior folders, attached garages, paneled doors, layered roofs, fascia, gutters, brick skirts, framed windows, shutters, porches, columns, chimneys, driveways, walks, shrubs, mailboxes, patios and finished rear elevations. Upgraded all twelve original storefronts with façade depth, parapets, pilasters, mullions, detailed entrances, awnings, planters, rooftop equipment and business-specific accents. Finished their rear elevations with loading pads, vents, service doors, utilities and dumpsters. The apartment received balconies, pilasters, cornices, a formal entrance and resident parking.
+
+**Backup:** `ServerStorage.SchaumburgTownBase_BeforeBuildingUpgrade_20261106`.
+
+**Verification:** Play-mode front and rear inspections confirmed the new residential, retail and apartment elevations. Final structure contains `3,666` anchored BaseParts and `219` Models with `0` invisible colliders. A post-build tree audit found one new patio conflict; the tree was removed, leaving `122` trees and `0` conflicts. Spawn remained safe and the console was clean.
+
+**Reusable lesson:** A polished filler building needs convincing front, side, rear and roof treatment. Improving only the façade leaves obvious blank shells from aerial or alley views. Preserve exact Burg cloning for a session where both Studio projects are connected; otherwise follow the same folder, exterior-only, roof-transition, trim and site standards.
+
 ## 2026-11-06 — Place1 Schaumburg town foundation
 
 **Request:** Use the whole empty Place1 baseplate to create a giant Schaumburg-inspired town foundation with streets, stores, and original ideas that can be continued later.
