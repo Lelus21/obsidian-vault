@@ -222,3 +222,56 @@ The twelve original simple storefront shells now publish `Style = BurgCommercial
 - Front and rear house, store, apartment and full-town Play-mode views inspected.
 - Player still spawns safely at approximately `(60.3, 3.7, 62.6)`.
 - No console errors.
+
+## Burg-reference hero interior expansion
+
+Place1 received a gameplay-focused reference expansion on 2026-11-07. The work used [[06 - House Building Standards]], [[07 - House and Building Catalog]], [[14 - Live Buildings Roads and Locations Audit]], and [[23 - Burg Model Transfer Catalog]]. The exact Burg place was not connected at the same time, so these are optimized reconstructions rather than direct Instance clones.
+
+### Playable hero buildings
+
+- `05_CommercialDistrict.PulseLuxury` is now a hollow, playable Luxury-inspired retail model. It has a glass-and-purple-brick storefront, readable `PULSE LUXURY` street sign, neon accents, planters, cashier counter, display walls, three product islands, colored Pulse display props, stockroom, staff bathroom, lighting and three prompted sliding doors. Attributes: `PlayableInterior = true`, `ExteriorFinished = true`, `InspiredBy = MarketSquarePlaza Luxury`.
+- `05_CommercialDistrict.TheVibePlace1` replaces the former `TownCafe`. It is a playable The Vibe-inspired lounge with a brick/charcoal storefront, readable street sign, red neon line, lounge booths, couches, tables, service counter, kitchen cabinets and appliances, restroom, string lights, patio seating and two prompted doors. Attributes: `PlayableInterior = true`, `ExteriorFinished = true`, `InspiredBy = The Vibe`.
+- `07_ResidentialDistrict.NorthMeadow02_Playable` replaces the former exterior-only `NorthMeadow02` filler while preserving the aligned residential lot. It is a fully walkable Burg-style model home with a garage, porch, working front/garage/bathroom doors, ground-floor living/dining/kitchen/powder-room layout, stairs, an upper hall, bedrooms, office, bathroom, furniture, ceiling and porch lighting, finished windows, roof, driveway, walk, shrubs and mailbox. Attributes: `PlayableInterior = true`, `InteriorFinished = true`, `ExteriorFinished = true`.
+
+The three models are indexed through ObjectValues under `12_HeroInteriors`, while remaining physically located in their normal district folders.
+
+### Reusable model library
+
+`ServerStorage.Place1ReusableModels` contains origin-centered copies ready for `Clone()` plus `PivotTo(...)` placement:
+
+- `PulseLuxuryInteriorTemplate`
+- `TheVibeInteriorTemplate`
+- `PlayableBurgHouseTemplate`
+
+Each template records its original Workspace source in `TemplateSource` and publishes `PlaceWithPivotTo = true`. The gameplay interaction code is shared instead of duplicated inside every model.
+
+### Shared door system
+
+`ServerScriptService.Place1HeroDoorController` discovers every BasePart with `InteractiveDoor = true`, connects its `ProximityPrompt`, and slides the door along its local X axis by `DoorSlideDistance`. It changes the prompt between Open and Close, disables the prompt during the tween, and also handles compatible doors added later.
+
+### District identity additions
+
+`13_DistrictIdentity` now contains:
+
+- `SchaumburgWelcomeGateway` at the southern connector.
+- `TownDirectoryKiosk` with Town Square, Civic Campus, Retail Row and Neighborhood directions.
+- Color-coded Town Center, Retail Row, Civic Campus and Neighborhood wayfinding signs.
+
+The civic green, brick, cream, charcoal and purple palette intentionally connects the new signs to Veterans Gateway Park, the clock tower and the hero stores without blocking roads or crosswalks.
+
+### Safety, backups and verification
+
+- New pre-expansion backup: `ServerStorage.SchaumburgTownBase_BeforeReferenceExpansion_20261106`.
+- Earlier backups remain: `SchaumburgTownBase_BeforePolish_20261106` and `SchaumburgTownBase_BeforeBuildingUpgrade_20261106`.
+- Final town audit: `4,523` descendants, `225` Models, `3,862` BaseParts, `0` unanchored parts and `8` ProximityPrompts.
+- Hero counts: Pulse Luxury `102` parts / `3` prompts; The Vibe `115` parts / `2` prompts; playable house `218` parts / `3` prompts.
+- Aerial, retail-front, both retail-interior, house-front and house-interior views were inspected. A roof/ceiling intersection found during inspection was corrected before the reusable house template was refreshed.
+- Play mode started successfully, the shared controller was enabled, all prompts remained present, and the Studio console remained clean.
+
+### Continuation rules for hero buildings
+
+- Keep filler buildings exterior-only until they serve gameplay; promote only selected landmarks to hero interiors.
+- Store reusable clones in `ServerStorage.Place1ReusableModels`, but keep the live copy in its numbered district folder.
+- Use attributes and the shared door controller instead of adding a separate door script to every model.
+- Keep product props and furniture optimized from primitive parts so the town remains stable as more interiors are added.
+- If exact Burg models are later exported as `.rbxm`, import them into a staging folder first and compare dependencies before replacing these gameplay-ready reconstructions.

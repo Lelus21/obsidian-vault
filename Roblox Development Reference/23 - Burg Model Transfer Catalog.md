@@ -206,3 +206,15 @@ Obsidian can store and link `.rbxm`/`.rbxmx` attachments, but it cannot preview 
 `C:\Users\Daniel\Documents\Obsidian Vault\Roblox Development Reference\Model Exports`
 
 Then link them from this note using ordinary Obsidian file links. Keep this Markdown catalog even after exporting because it records dependencies that the model file itself does not explain.
+
+## Place1 application status — 2026-11-07
+
+The catalog was applied to Place1 as optimized, dependency-light reconstructions because the Burg Studio instance was not simultaneously connected.
+
+- `Workspace.SchaumburgTownBase.05_CommercialDistrict.PulseLuxury` — playable Luxury-inspired retail interior.
+- `Workspace.SchaumburgTownBase.05_CommercialDistrict.TheVibePlace1` — playable Vibe-inspired lounge, kitchen and restroom.
+- `Workspace.SchaumburgTownBase.07_ResidentialDistrict.NorthMeadow02_Playable` — playable Burg-style furnished model home.
+- `ServerStorage.Place1ReusableModels` — origin-centered reusable copies of all three models.
+- `ServerScriptService.Place1HeroDoorController` — shared attribute-driven door behavior with no copied Burg dependencies.
+
+See [[22 - Place1 Schaumburg Town Base#Burg-reference hero interior expansion]] for the current model structure, part/prompt counts, verification results and continuation rules.

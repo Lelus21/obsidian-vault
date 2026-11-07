@@ -260,6 +260,22 @@ Updated `ServerStorage.EquipmentBagTools.starterpulse` so 0% juice shows `0% BUR
 
 **Reusable lesson:** For a large starter town, establish the road hierarchy, block boundaries and expansion connectors first. Keep every district in a named folder and use exterior-only building shells so future gameplay interiors can replace individual buildings without rebuilding the map.
 
+## 2026-11-07 — Place1 reference-driven hero interiors and model library
+
+**Request:** Apply the accumulated Burg, house, commercial and map notes to Place1, improve the town with original ideas, create reusable models, and save the result back into the reference notes.
+
+**Source references:** [[06 - House Building Standards]], [[07 - House and Building Catalog]], [[14 - Live Buildings Roads and Locations Audit]], [[22 - Place1 Schaumburg Town Base]], and [[23 - Burg Model Transfer Catalog]]. Only Place1 was connected, so exact cross-place cloning was unavailable.
+
+**Implementation:** Rebuilt Pulse Luxury as a playable retail interior, replaced TownCafe with a playable The Vibe lounge/kitchen/restroom, and promoted `NorthMeadow02` into a fully walkable Burg-style model home with garage, two floors, stairs, rooms, furniture and lighting. Added `Place1HeroDoorController` as one attribute-driven sliding-door system for all eight new prompts. Added Schaumburg welcome, town-directory and district-wayfinding models. Created three origin-centered reusable templates under `ServerStorage.Place1ReusableModels` and indexed the live hero models in `Workspace.SchaumburgTownBase.12_HeroInteriors`.
+
+**Original inspiration added:** Used a civic green/brick wayfinding family, a neon purple Luxury identity, a warmer red/charcoal Vibe identity, and a deliberately limited set of playable hero interiors so the rest of the town can stay lightweight filler geometry.
+
+**Backups:** `ServerStorage.SchaumburgTownBase_BeforeReferenceExpansion_20261106`, plus the earlier polish and building-upgrade backups.
+
+**Verification:** Final audit reported `4,523` town descendants, `225` Models, `3,862` anchored BaseParts, `0` unanchored parts and `8` ProximityPrompts. Inspected aerial, storefront, retail-interior, model-home exterior and model-home interior views. The first house inspection exposed a lower-roof/ceiling overlap; the lower roof was restricted to the one-story wing, ceilings were added around the stair opening, and the template was refreshed. Play mode and the enabled shared door controller produced no console errors.
+
+**Reusable lesson:** Apply a reference catalog by extracting its design language and gameplay structure, not by turning every filler shell into a heavy interior. A small number of optimized hero buildings, a shared interaction controller, clear reusable templates and an inspection-driven correction pass improve the town more safely than importing a large undocumented dependency tree.
+
 ## 2026-11-06 — Place1 town full polish pass
 
 **Request:** Make the Schaumburg town substantially better, fill the visible gaps, replace the poor fountain, improve the clock, and reposition trees so they do not interfere with anything.
