@@ -5,3 +5,9 @@
 {"timestamp":"2026-11-08T05:14:14.935Z","level":"INFO","message":"semantic-search: started","fields":{"provider":"auto"}}
 {"timestamp":"2026-11-08T05:14:14.935Z","level":"INFO","message":"MCP Tools Plugin loaded","fields":{}}
 {"timestamp":"2026-11-08T05:14:36.346Z","level":"INFO","message":"Claude Desktop config updated","fields":{"configPath":"<home>\\AppData\\Roaming\\Claude\\claude_desktop_config.json","pluginId":"obsidian_obsidian_vault","removedKeys":[]}}
+{"timestamp":"2026-11-08T21:33:22.759Z","level":"INFO","message":"MCP Tools Plugin loading","fields":{"pluginVersion":"3.3.0","platform":"win32"}}
+{"timestamp":"2026-11-08T21:33:22.784Z","level":"INFO","message":"MCP Connector HTTP server listening","fields":{"port":27201,"pluginVersion":"3.3.0"}}
+{"timestamp":"2026-11-08T21:33:22.795Z","level":"INFO","message":"Hosting the shared MCP broker","fields":{"port":27200}}
+{"timestamp":"2026-11-08T21:33:22.804Z","level":"INFO","message":"Broker route registered","fields":{"brokerPort":27200,"transportPort":27201}}
+{"timestamp":"2026-11-08T21:33:22.813Z","level":"INFO","message":"semantic-search: started","fields":{"provider":"auto"}}
+{"timestamp":"2026-11-08T21:33:22.814Z","level":"INFO","message":"MCP Tools Plugin loaded","fields":{}}
