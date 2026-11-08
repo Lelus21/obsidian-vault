@@ -21,11 +21,11 @@ Large Roblox worlds stay fast by not drawing (or not even loading) what is far a
 
 `MeshPart.RenderFidelity` (Roblox docs):
 
-| Value | Behaviour |
-|---|---|
+| Value                 | Behaviour                                                            |
+| --------------------- | -------------------------------------------------------------------- |
 | `Automatic` (default) | Highest detail under 250 studs, Medium 250 to 500, Lowest beyond 500 |
-| `Precise` | Always highest |
-| `Performance` | Always low |
+| `Precise`             | Always highest                                                       |
+| `Performance`         | Always low                                                           |
 
 The engine generates the lower levels; you do not author them. Leave `Automatic` on almost everything. Use `Precise` only where a distant silhouette visibly breaks (a thin landmark spire seen across a map), and `Performance` for small props never seen up close. The docs name "too many MeshParts set to Precise" as a common performance problem.
 
