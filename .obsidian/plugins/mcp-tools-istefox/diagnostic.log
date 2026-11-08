@@ -11,3 +11,9 @@
 {"timestamp":"2026-11-08T21:33:22.804Z","level":"INFO","message":"Broker route registered","fields":{"brokerPort":27200,"transportPort":27201}}
 {"timestamp":"2026-11-08T21:33:22.813Z","level":"INFO","message":"semantic-search: started","fields":{"provider":"auto"}}
 {"timestamp":"2026-11-08T21:33:22.814Z","level":"INFO","message":"MCP Tools Plugin loaded","fields":{}}
+{"timestamp":"2026-11-08T23:11:06.169Z","level":"INFO","message":"MCP Tools Plugin loading","fields":{"pluginVersion":"3.3.0","platform":"win32"}}
+{"timestamp":"2026-11-08T23:11:06.197Z","level":"INFO","message":"MCP Connector HTTP server listening","fields":{"port":27201,"pluginVersion":"3.3.0"}}
+{"timestamp":"2026-11-08T23:11:06.208Z","level":"INFO","message":"Hosting the shared MCP broker","fields":{"port":27200}}
+{"timestamp":"2026-11-08T23:11:06.219Z","level":"INFO","message":"Broker route registered","fields":{"brokerPort":27200,"transportPort":27201}}
+{"timestamp":"2026-11-08T23:11:06.228Z","level":"INFO","message":"semantic-search: started","fields":{"provider":"auto"}}
+{"timestamp":"2026-11-08T23:11:06.228Z","level":"INFO","message":"MCP Tools Plugin loaded","fields":{}}
