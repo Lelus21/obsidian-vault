@@ -1,0 +1,41 @@
+{
+  "toolLoading": {
+    "profile": "all",
+    "promoted": [],
+    "counters": {},
+    "profiles": {
+      "default": {
+        "profile": "all",
+        "promoted": [],
+        "allowed": null
+      }
+    },
+    "everCalledSince": 1794114854896
+  },
+  "mcpTransport": {
+    "tokens": [
+      {
+        "id": "default",
+        "label": "Default",
+        "token": "6h_ZP2Y4uTaHOb_i7Zd2MPcYR_86t7eJhkxDUMDqVUI",
+        "createdAt": 1794114854875
+      }
+    ],
+    "bearerToken": "6h_ZP2Y4uTaHOb_i7Zd2MPcYR_86t7eJhkxDUMDqVUI",
+    "livePort": 27201
+  },
+  "mcpClientConfig": {
+    "codexDiscovery": {
+      "routeId": "783190a3-6e95-4d5e-a5e1-258647746b90",
+      "accessToken": "QrRNLAMWoJAnFkN-_aev3XJykgnvsvy9jeNrRvJKdtc",
+      "dataPath": "c:\\users\\daniel\\documents\\obsidian vault\\.obsidian\\plugins\\mcp-tools-istefox\\data.json"
+    },
+    "autoWriteClaudeDesktopConfig": true,
+    "autoWriteTokenId": "default"
+  },
+  "semanticSearch": {
+    "provider": "auto",
+    "indexingMode": "live",
+    "unloadModelWhenIdle": false
+  }
+}
